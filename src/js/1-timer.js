@@ -46,8 +46,9 @@ flatpickr(dateTimePicker, options);
 
 // Функція для додавання лідируючого нуля
 function addLeadingZero(value) {
-  return value < 10 ? `0${value}` : value;
+  return value.toString().padStart(2, '0');
 }
+
 
 // Функція для перетворення мілісекунд в об'єкт з днями, годинами, хвилинами і секундами
 function convertMs(ms) {
