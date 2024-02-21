@@ -13,6 +13,10 @@ form.addEventListener('submit', (event) => {
   const delay = parseInt(form.elements.delay.value, 10);
   const state = form.elements.state.value;
 
+   // Очистка значения в поле ввода delay
+  form.elements.delay.value = '';
+
+  
   // Создание и обработка промиса
   const snackbarPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
