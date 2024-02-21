@@ -1,20 +1,19 @@
-// Описаний у документації
+// Описаный в документации
 import iziToast from "izitoast";
-// Додатковий імпорт стилів
+// Дополнительный импорт стилей
 import "izitoast/dist/css/iziToast.min.css";
 
-// HTML елементи
 const form = document.querySelector('.form');
 
-// Обробник події submit форми
+// Обработчик событий submit формы
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  // Отримання значень з форми
+  // Получение значений из формы
   const delay = parseInt(form.elements.delay.value, 10);
   const state = form.elements.state.value;
 
-  // Створення та обробка промісу
+  // Создание и обработка промиса
   const snackbarPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (state === 'fulfilled') {
@@ -25,17 +24,17 @@ form.addEventListener('submit', (event) => {
     }, delay);
   });
 
-  // Опрацювання виконання промісу
+  
   snackbarPromise
     .then((delay) => {
-      // Виведення повідомлення при вдалому виконанні промісу
+      // Вывод сообщения об успешном исполнении
       iziToast.success({
         title: 'Fulfilled promise',
         message: `✅ Fulfilled promise in ${delay}ms`,
       });
     })
     .catch((delay) => {
-      // Виведення повідомлення при невдалому виконанні промісу
+      // Вывод сообщения о неудачном исполнении
       iziToast.error({
         title: 'Rejected promise',
         message: `❌ Rejected promise in ${delay}ms`,

@@ -1,12 +1,12 @@
-// Описаний в документації
+// Описаный в документации
 import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
-import "flatpickr/dist/flatpickr.min.css";
+// Дополнительный импорт стилей
+import "flatpickr/dist/flatpickr.min.css"
 
 
-// Описаний у документації
+// Описаный в документации
 import iziToast from "izitoast";
-// Додатковий імпорт стилів
+// Дополнительный импорт стилей
 import "izitoast/dist/css/iziToast.min.css";
 
 // HTML елементи
@@ -17,10 +17,10 @@ const hoursElement = document.querySelector('[data-hours]');
 const minutesElement = document.querySelector('[data-minutes]');
 const secondsElement = document.querySelector('[data-seconds]');
 
-// Змінна для збереження обраної користувачем дати
+// Переменная для сохранения выбранной пользователем даты
 let userSelectedDate;
 
-// Налаштування flatpickr
+// Настройка flatpickr
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -41,16 +41,16 @@ const options = {
   },
 };
 
-// Ініціалізація flatpickr
+// Инициализация flatpickr
 flatpickr(dateTimePicker, options);
 
-// Функція для додавання лідируючого нуля
+// Функция для добавления лидирующего нуля
 function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
 }
 
 
-// Функція для перетворення мілісекунд в об'єкт з днями, годинами, хвилинами і секундами
+// Функция для преобразования миллисекунд в объект с днями, часами, минутами и секундами
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -65,7 +65,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-// Обробник натискання кнопки "Start"
+// Обработчик нажатия кнопки "Start"
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
 
@@ -87,7 +87,7 @@ startButton.addEventListener('click', () => {
   }, 1000);
 });
 
-// Функція для оновлення інтерфейсу таймера
+// Функция для обновления интерфейса таймера
 function updateTimerDisplay(days, hours, minutes, seconds) {
   daysElement.textContent = addLeadingZero(days);
   hoursElement.textContent = addLeadingZero(hours);
